@@ -31,7 +31,7 @@ export default function ReviewForm() {
       setName('')
       setRating(0)
       setText('')
-    } catch (err) {
+    } catch {
       setStatus('error')
       setMessage('Something went wrong. Please try again later.')
     }
@@ -40,35 +40,35 @@ export default function ReviewForm() {
   return (
     <div className="w-full">
       {status === 'success' ? (
-        <div className="bg-gradient-to-r from-green-500/20 to-green-600/20 backdrop-blur-sm rounded-2xl p-8 border border-green-300/30 text-center">
-          <div className="text-6xl mb-4">🎉</div>
-          <h3 className="text-2xl font-bold text-white mb-3">Thank You!</h3>
-          <p className="text-green-200 mb-6">Your review has been submitted and is awaiting approval.</p>
+        <div className="glass-card rounded-3xl p-10 text-center border-green-300/20 bg-gradient-to-br from-green-500/10 to-green-600/10 animate-scale-in">
+          <div className="text-8xl mb-6 animate-bounce-subtle">🎉</div>
+          <h3 className="text-3xl font-heading font-bold text-white mb-4">Thank You!</h3>
+          <p className="text-green-100 mb-8 text-lg">Your review has been submitted and is awaiting approval.</p>
           <button
             onClick={() => setStatus('idle')}
-            className="bg-white/20 hover:bg-white/30 text-white px-6 py-2 rounded-lg font-medium transition-colors"
+            className="glass-card hover-lift glow-on-hover button-press text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 focus-ring"
           >
             Leave Another Review
           </button>
         </div>
       ) : (
-        <form onSubmit={onSubmit} className="space-y-6">
+        <form onSubmit={onSubmit} className="space-y-8">
           <div>
-            <label className="block text-white font-medium mb-3">Your name (optional)</label>
+            <label className="block text-white font-heading font-semibold mb-4 text-lg">Your name (optional)</label>
             <input
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="UF Student"
-              className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all"
+              className="w-full glass-card rounded-2xl px-6 py-4 text-white placeholder-blue-200 focus-ring transition-all duration-300 text-lg"
             />
           </div>
 
           <div>
-            <label className="block text-white font-medium mb-3">How was your experience?</label>
-            <div className="flex items-center gap-3">
+            <label className="block text-white font-heading font-semibold mb-4 text-lg">How was your experience?</label>
+            <div className="flex items-center gap-4">
               <Stars value={rating} onChange={setRating} />
               {rating > 0 && (
-                <span className="text-orange-300 font-medium">
+                <span className="text-gradient font-bold text-lg animate-fade-in-up">
                   {rating === 5 ? 'Excellent!' : rating === 4 ? 'Great!' : rating === 3 ? 'Good' : rating === 2 ? 'Okay' : 'Poor'}
                 </span>
               )}
@@ -76,20 +76,20 @@ export default function ReviewForm() {
           </div>
 
           <div>
-            <label className="block text-white font-medium mb-3">Tell us about your experience</label>
+            <label className="block text-white font-heading font-semibold mb-4 text-lg">Tell us about your experience</label>
             <textarea
               value={text}
               onChange={(e) => setText(e.target.value)}
-              rows={4}
+              rows={5}
               placeholder="How was the service? What did you think of the repair quality and turnaround time?"
-              className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all resize-none"
+              className="w-full glass-card rounded-2xl px-6 py-4 text-white placeholder-blue-200 focus-ring transition-all duration-300 resize-none text-lg"
               required
             />
           </div>
 
           <button
             disabled={status === 'submitting' || !rating}
-            className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 disabled:from-gray-500 disabled:to-gray-600 disabled:cursor-not-allowed text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:transform-none flex items-center justify-center gap-2"
+            className="w-full gradient-accent glow-on-hover button-press disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-5 px-8 rounded-2xl transition-all duration-300 shadow-2xl hover:shadow-xl transform hover:-translate-y-1 disabled:transform-none flex items-center justify-center gap-3 focus-ring text-lg"
           >
             {status === 'submitting' ? (
               <>
@@ -105,8 +105,8 @@ export default function ReviewForm() {
           </button>
 
           {message && status === 'error' && (
-            <div className="bg-red-500/20 backdrop-blur-sm rounded-xl p-4 border border-red-300/30">
-              <p className="text-red-200 text-center">{message}</p>
+            <div className="glass-card rounded-2xl p-6 border-red-300/20 bg-gradient-to-br from-red-500/10 to-red-600/10 animate-fade-in-up">
+              <p className="text-red-200 text-center text-lg font-medium">{message}</p>
             </div>
           )}
         </form>

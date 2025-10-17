@@ -3,51 +3,56 @@ import ReviewsList from '@/components/ReviewsList'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-orange-400 rounded-full blur-3xl"></div>
-        <div className="absolute top-40 right-20 w-48 h-48 bg-orange-300 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-40 left-1/4 w-40 h-40 bg-blue-300 rounded-full blur-3xl"></div>
+    <div className="min-h-screen gradient-primary gradient-mesh relative overflow-hidden">
+      {/* Enhanced Background Pattern */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-20 left-10 w-40 h-40 bg-gradient-to-br from-orange-400 to-orange-500 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute top-40 right-20 w-56 h-56 bg-gradient-to-br from-orange-300 to-yellow-400 rounded-full blur-3xl animate-float animate-delay-200"></div>
+        <div className="absolute bottom-40 left-1/4 w-48 h-48 bg-gradient-to-br from-blue-300 to-purple-400 rounded-full blur-3xl animate-float animate-delay-400"></div>
+        <div className="absolute top-1/2 right-1/3 w-32 h-32 bg-gradient-to-br from-pink-300 to-orange-300 rounded-full blur-2xl animate-float animate-delay-300"></div>
       </div>
 
-      {/* Header */}
-      <header className="bg-white/95 backdrop-blur-sm shadow-lg border-b border-orange-200/20 relative z-10">
-        <div className="max-w-6xl mx-auto px-4 py-6">
+      {/* Enhanced Header */}
+      <header className="glass-card border-b border-white/10 relative z-10 animate-slide-in-left">
+        <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <div className="relative">
-                <div className="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-lg transform rotate-3">
+              <div className="relative group">
+                {/* TODO: Replace with actual logo image */}
+                <div className="w-20 h-20 gradient-accent rounded-3xl flex items-center justify-center text-white font-bold text-3xl shadow-2xl transform rotate-2 hover-lift animate-pulse-glow glow-on-hover">
                   CT
                 </div>
-                <div className="absolute -top-1 -right-1 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs">⚡</span>
-                </div>
+                {/* Logo image structure - uncomment when you have the logo */}
+                {/* <img 
+                  src="/logo.png" 
+                  alt="Cell Tech @ UF Logo" 
+                  className="w-20 h-20 rounded-3xl shadow-2xl transform rotate-2 hover-lift animate-pulse-glow glow-on-hover"
+                /> */}
               </div>
-              <div>
-                <h1 className="text-2xl font-bold text-blue-800 tracking-tight">Cell Tech @ UF</h1>
-                <p className="text-gray-600 font-medium">Expert iPhone Repair Services</p>
-                <div className="flex items-center gap-2 mt-1">
-                  <div className="flex text-orange-500">
+              <div className="animate-fade-in-up animate-delay-200">
+                <h1 className="text-3xl md:text-4xl font-heading font-bold text-white tracking-tight mb-2">Cell Tech @ UF</h1>
+                <p className="text-blue-100 font-body font-medium text-lg mb-3">Expert iPhone Repair Services</p>
+                <div className="flex items-center gap-3">
+                  <div className="flex text-orange-400 text-lg">
                     {'★'.repeat(5)}
                   </div>
-                  <span className="text-sm text-gray-500">Trusted by UF students</span>
+                  <span className="text-sm text-blue-200 font-medium">Trusted by 500+ UF students</span>
                 </div>
               </div>
             </div>
-            <div className="flex gap-3">
+            <div className="flex gap-4 animate-slide-in-right animate-delay-300">
               <a
                 href="tel:239-321-4052"
-                className="group bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center gap-2"
+                className="group gradient-accent glow-on-hover button-press text-white px-8 py-4 rounded-2xl font-semibold text-sm transition-all duration-300 shadow-2xl hover:shadow-xl transform hover:-translate-y-1 flex items-center gap-3 focus-ring"
               >
-                <span className="text-lg">📞</span>
+                <span className="text-xl">📞</span>
                 <span>Call Now</span>
               </a>
               <a
                 href="sms:239-321-4052"
-                className="group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center gap-2"
+                className="group gradient-primary glow-on-hover button-press text-white px-8 py-4 rounded-2xl font-semibold text-sm transition-all duration-300 shadow-2xl hover:shadow-xl transform hover:-translate-y-1 flex items-center gap-3 focus-ring"
               >
-                <span className="text-lg">💬</span>
+                <span className="text-xl">💬</span>
                 <span>Text Us</span>
               </a>
             </div>
@@ -55,97 +60,177 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative z-10 pt-16 pb-20">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <div className="mb-8">
-            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+      {/* Enhanced Hero Section */}
+      <section className="relative z-10 pt-20 pb-28">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <div className="mb-16">
+            <h2 className="text-6xl md:text-8xl font-heading font-bold text-white mb-8 leading-tight animate-fade-in-up">
               Fast, Affordable
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
+              <span className="block text-gradient animate-fade-in-up animate-delay-100">
                 iPhone Repairs
               </span>
             </h2>
-            <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-2xl md:text-3xl font-body text-blue-100 mb-12 max-w-4xl mx-auto leading-relaxed animate-fade-in-up animate-delay-200">
               Professional repair services right on campus for University of Florida students
             </p>
           </div>
 
-          {/* Service Cards */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 max-w-4xl mx-auto">
+          {/* Enhanced Service Cards */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 max-w-5xl mx-auto">
             {[
               { icon: '📱', title: 'Screen Replacement', desc: 'Cracked or broken screens' },
               { icon: '🔋', title: 'Battery Replacement', desc: 'Poor battery life' },
               { icon: '📸', title: 'Camera Repair', desc: 'Blurry or broken cameras' },
               { icon: '🔌', title: 'Charging Port', desc: 'Won\'t charge properly' }
             ].map((service, i) => (
-              <div key={i} className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 group">
-                <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">
+              <div key={i} className={`glass-card rounded-3xl p-8 group hover-lift animate-fade-in-up animate-delay-${(i + 1) * 100}`}>
+                <div className="text-5xl mb-4 group-hover:scale-125 transition-transform duration-500 animate-wave">
                   {service.icon}
                 </div>
-                <h3 className="text-white font-semibold mb-2 text-sm md:text-base">
+                <h3 className="text-white font-heading font-bold mb-3 text-base md:text-lg">
                   {service.title}
                 </h3>
-                <p className="text-blue-200 text-xs md:text-sm">
+                <p className="text-blue-200 text-sm md:text-base leading-relaxed">
                   {service.desc}
                 </p>
               </div>
             ))}
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mb-12">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-orange-400 mb-2">500+</div>
-              <div className="text-blue-200 text-sm">Repairs Completed</div>
+          {/* Enhanced Stats */}
+          <div className="grid grid-cols-3 gap-12 max-w-4xl mx-auto mb-16">
+            <div className="text-center glass-card rounded-2xl p-8 hover-lift animate-scale-in animate-delay-400">
+              <div className="text-5xl font-heading font-bold text-gradient mb-4">500+</div>
+              <div className="text-blue-100 text-lg font-medium">Repairs Completed</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-orange-400 mb-2">24hr</div>
-              <div className="text-blue-200 text-sm">Average Turnaround</div>
+            <div className="text-center glass-card rounded-2xl p-8 hover-lift animate-scale-in animate-delay-500">
+              <div className="text-5xl font-heading font-bold text-gradient mb-4">24hr</div>
+              <div className="text-blue-100 text-lg font-medium">Average Turnaround</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-orange-400 mb-2">100%</div>
-              <div className="text-blue-200 text-sm">Student Satisfaction</div>
+            <div className="text-center glass-card rounded-2xl p-8 hover-lift animate-scale-in animate-delay-600">
+              <div className="text-5xl font-heading font-bold text-gradient mb-4">100%</div>
+              <div className="text-blue-100 text-lg font-medium">Student Satisfaction</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Reviews Section */}
-      <section className="relative z-10 pb-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+      {/* Enhanced About Section */}
+      <section className="relative z-10 py-28">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <h3 className="text-5xl md:text-6xl font-heading font-bold text-white mb-6 animate-fade-in-up">
+              Meet Your Technician
+            </h3>
+            <p className="text-blue-100 text-xl md:text-2xl max-w-3xl mx-auto font-body animate-fade-in-up animate-delay-200 leading-relaxed">
+              Get to know the expert behind Cell Tech @ UF
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            {/* Enhanced Profile */}
+            <div className="text-center lg:text-left animate-slide-in-left">
+              <div className="relative inline-block mb-8">
+                <div className="w-64 h-64 mx-auto lg:mx-0 gradient-accent rounded-full flex items-center justify-center text-white text-8xl font-bold shadow-2xl animate-pulse-glow hover-lift glow-on-hover">
+                  W
+                </div>
+                <div className="absolute -bottom-4 -right-4 w-20 h-20 gradient-primary rounded-full flex items-center justify-center animate-wave shadow-xl">
+                  <span className="text-white text-3xl">🔧</span>
+                </div>
+              </div>
+              <h4 className="text-4xl font-heading font-bold text-white mb-4">Wasseem Barghouthi</h4>
+              <p className="text-gradient font-body font-bold text-xl mb-6">Certified iPhone Repair Specialist</p>
+              <div className="flex items-center justify-center lg:justify-start gap-3 mb-6">
+                <div className="flex text-orange-400 text-2xl">
+                  {'★'.repeat(5)}
+                </div>
+                <span className="text-blue-100 text-lg font-body font-medium">500+ Successful Repairs</span>
+              </div>
+            </div>
+
+            {/* Enhanced About Content */}
+            <div className="space-y-8 animate-slide-in-right animate-delay-200">
+              <div className="glass-card rounded-3xl p-8 hover-lift">
+                <h5 className="text-2xl font-heading font-bold text-white mb-4 flex items-center gap-4">
+                  <span className="text-orange-400 text-3xl">🎓</span>
+                  Experience & Education
+                </h5>
+                <p className="text-blue-100 font-body leading-relaxed text-lg">
+                  As a University of Florida student studying Computer Engineering, I understand the importance of having a working phone on campus. With over 2 years of experience in mobile device repair and 500+ successful repairs, I&apos;ve built a reputation for quality work and honest pricing.
+                </p>
+              </div>
+
+              <div className="glass-card rounded-3xl p-8 hover-lift">
+                <h5 className="text-2xl font-heading font-bold text-white mb-4 flex items-center gap-4">
+                  <span className="text-orange-400 text-3xl">🛠️</span>
+                  Why Trust Me?
+                </h5>
+                <div className="space-y-4">
+                  {[
+                    'Certified in iPhone repair techniques',
+                    'Use only high-quality replacement parts',
+                    'Transparent pricing with no hidden fees',
+                    'Quick turnaround - most repairs in 24 hours',
+                    'Fellow UF student who understands your needs'
+                  ].map((point, i) => (
+                    <div key={i} className="flex items-start gap-4 text-blue-100 font-body text-lg">
+                      <span className="text-orange-400 text-xl mt-1">✓</span>
+                      <span>{point}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="glass-card rounded-3xl p-8 hover-lift border-orange-300/20 bg-gradient-to-br from-orange-500/10 to-orange-600/10">
+                <h5 className="text-2xl font-heading font-bold text-white mb-4 flex items-center gap-4">
+                  <span className="text-orange-400 text-3xl">💬</span>
+                  My Promise to You
+                </h5>
+                <p className="text-white font-body leading-relaxed italic text-lg">
+                  &quot;I treat every device like it&apos;s my own. Your phone is important to you, and I understand that. That&apos;s why I provide honest assessments, fair pricing, and quality repairs that last. As a fellow Gator, I&apos;m here to help keep you connected!&quot;
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Enhanced Reviews Section */}
+      <section className="relative z-10 pb-28">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <h3 className="text-5xl md:text-6xl font-heading font-bold text-white mb-6 animate-fade-in-up">
               What UF Students Say
             </h3>
-            <p className="text-blue-200 text-lg max-w-2xl mx-auto">
+            <p className="text-blue-100 text-xl md:text-2xl max-w-3xl mx-auto font-body animate-fade-in-up animate-delay-200 leading-relaxed">
               Real reviews from real students who trust us with their devices
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div className="space-y-6">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                <h4 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
-                  <span className="text-orange-400">⭐</span>
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div className="space-y-8 animate-slide-in-left">
+              <div className="glass-card rounded-3xl p-8">
+                <h4 className="text-3xl font-heading font-bold text-white mb-6 flex items-center gap-4">
+                  <span className="text-orange-400 text-4xl">⭐</span>
                   Customer Reviews
                 </h4>
                 <ReviewsList />
               </div>
             </div>
             
-            <div className="space-y-6">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                <h4 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
-                  <span className="text-orange-400">✍️</span>
+            <div className="space-y-8 animate-slide-in-right animate-delay-200">
+              <div className="glass-card rounded-3xl p-8">
+                <h4 className="text-3xl font-heading font-bold text-white mb-6 flex items-center gap-4">
+                  <span className="text-orange-400 text-4xl">✍️</span>
                   Share Your Experience
                 </h4>
                 <ReviewForm />
               </div>
               
-              {/* Why Choose Us */}
-              <div className="bg-gradient-to-br from-orange-500/20 to-orange-600/20 backdrop-blur-sm rounded-2xl p-6 border border-orange-300/30">
-                <h4 className="text-xl font-bold text-white mb-4">Why Choose Cell Tech @ UF?</h4>
-                <div className="space-y-3">
+              {/* Enhanced Why Choose Us */}
+              <div className="glass-card rounded-3xl p-8 border-orange-300/20 bg-gradient-to-br from-orange-500/10 to-orange-600/10 hover-lift">
+                <h4 className="text-2xl font-heading font-bold text-white mb-6">Why Choose Cell Tech @ UF?</h4>
+                <div className="space-y-4">
                   {[
                     'On-campus convenience',
                     'Student-friendly pricing',
@@ -153,8 +238,8 @@ export default function Home() {
                     'Quality parts & warranty',
                     'Experienced technicians'
                   ].map((reason, i) => (
-                    <div key={i} className="flex items-center gap-3 text-white">
-                      <span className="text-orange-400">✓</span>
+                    <div key={i} className="flex items-center gap-4 text-white text-lg">
+                      <span className="text-orange-400 text-xl">✓</span>
                       <span>{reason}</span>
                     </div>
                   ))}
@@ -165,52 +250,59 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="relative z-10 bg-blue-900/80 backdrop-blur-sm border-t border-blue-700/50">
-        <div className="max-w-6xl mx-auto px-4 py-12">
-          <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
-            <div>
-              <div className="flex items-center justify-center md:justify-start gap-3 mb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">
+      {/* Enhanced Footer */}
+      <footer className="relative z-10 glass-card border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-6 py-16">
+          <div className="grid md:grid-cols-3 gap-12 text-center md:text-left">
+            <div className="animate-fade-in-up">
+              <div className="flex items-center justify-center md:justify-start gap-4 mb-6">
+                {/* TODO: Replace with actual logo image */}
+                <div className="w-16 h-16 gradient-accent rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
                   CT
                 </div>
+                {/* Logo image structure - uncomment when you have the logo */}
+                {/* <img 
+                  src="/logo.png" 
+                  alt="Cell Tech @ UF Logo" 
+                  className="w-16 h-16 rounded-2xl shadow-lg"
+                /> */}
                 <div>
-                  <h4 className="text-xl font-bold text-white">Cell Tech @ UF</h4>
-                  <p className="text-blue-300 text-sm">iPhone Repair Experts</p>
+                  <h4 className="text-2xl font-heading font-bold text-white">Cell Tech @ UF</h4>
+                  <p className="text-blue-200 text-lg">iPhone Repair Experts</p>
                 </div>
               </div>
             </div>
             
-            <div>
-              <h5 className="font-semibold text-white mb-4">Contact Info</h5>
-              <div className="space-y-2">
-                <p className="text-blue-200 flex items-center justify-center md:justify-start gap-2">
-                  <span>📞</span>
-                  <a href="tel:239-321-4052" className="hover:text-orange-400 transition-colors">239-321-4052</a>
+            <div className="animate-fade-in-up animate-delay-200">
+              <h5 className="font-heading font-bold text-white mb-6 text-xl">Contact Info</h5>
+              <div className="space-y-4">
+                <p className="text-blue-100 flex items-center justify-center md:justify-start gap-3 text-lg">
+                  <span className="text-2xl">📞</span>
+                  <a href="tel:239-321-4052" className="hover:text-orange-400 transition-colors font-medium">239-321-4052</a>
                 </p>
-                <p className="text-blue-200 flex items-center justify-center md:justify-start gap-2">
-                  <span>✉️</span>
-                  <a href="mailto:wasseemb2007@gmail.com" className="hover:text-orange-400 transition-colors">wasseemb2007@gmail.com</a>
+                <p className="text-blue-100 flex items-center justify-center md:justify-start gap-3 text-lg">
+                  <span className="text-2xl">✉️</span>
+                  <a href="mailto:wasseemb2007@gmail.com" className="hover:text-orange-400 transition-colors font-medium">wasseemb2007@gmail.com</a>
                 </p>
-                <p className="text-blue-200 flex items-center justify-center md:justify-start gap-2">
-                  <span>📍</span>
-                  <span>University of Florida Campus</span>
+                <p className="text-blue-100 flex items-center justify-center md:justify-start gap-3 text-lg">
+                  <span className="text-2xl">📍</span>
+                  <span className="font-medium">University of Florida Campus</span>
                 </p>
               </div>
             </div>
             
-            <div>
-              <h5 className="font-semibold text-white mb-4">Quick Actions</h5>
-              <div className="flex flex-col gap-3">
+            <div className="animate-fade-in-up animate-delay-400">
+              <h5 className="font-heading font-bold text-white mb-6 text-xl">Quick Actions</h5>
+              <div className="flex flex-col gap-4">
                 <a
                   href="tel:239-321-4052"
-                  className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-medium transition-colors inline-block"
+                  className="gradient-accent glow-on-hover button-press text-white px-6 py-4 rounded-2xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block focus-ring"
                 >
                   Call for Quote
                 </a>
                 <a
                   href="sms:239-321-4052"
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors inline-block"
+                  className="gradient-primary glow-on-hover button-press text-white px-6 py-4 rounded-2xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block focus-ring"
                 >
                   Text Us Now
                 </a>
@@ -218,8 +310,8 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="border-t border-blue-700/50 mt-8 pt-8 text-center">
-            <p className="text-blue-300 text-sm">
+          <div className="border-t border-white/10 mt-12 pt-8 text-center animate-fade-in-up animate-delay-600">
+            <p className="text-blue-200 text-lg font-medium">
               © 2024 Cell Tech @ UF. Serving University of Florida students with expert iPhone repair services.
             </p>
           </div>

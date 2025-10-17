@@ -7,7 +7,7 @@ export function Stars({ value = 0, onChange }: { value?: number; onChange?: (v: 
   const active = hover ?? value
   
   return (
-    <div className="flex gap-1">
+    <div className="flex gap-2">
       {stars.map((s) => (
         <button
           key={s}
@@ -17,12 +17,12 @@ export function Stars({ value = 0, onChange }: { value?: number; onChange?: (v: 
           onClick={() => onChange?.(s)}
           aria-label={`${s} star${s > 1 ? 's' : ''}`}
           className={`
-            text-3xl transition-all duration-200 transform hover:scale-110 active:scale-95
+            text-4xl transition-all duration-300 transform hover:scale-125 active:scale-110 focus-ring rounded-lg p-1
             ${active >= s 
-              ? 'text-orange-400 drop-shadow-lg' 
-              : 'text-white/30 hover:text-orange-300'
+              ? 'text-orange-400 drop-shadow-2xl animate-pulse-glow' 
+              : 'text-white/40 hover:text-orange-300'
             }
-            ${onChange ? 'cursor-pointer' : 'cursor-default'}
+            ${onChange ? 'cursor-pointer hover-lift' : 'cursor-default'}
           `}
           disabled={!onChange}
         >

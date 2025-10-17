@@ -39,40 +39,40 @@ export default function ReviewsList() {
   return (
     <div className="w-full">
       {reviews.length > 0 && (
-        <div className="text-center mb-8 p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
-          <div className="text-4xl font-bold text-orange-400 mb-2">{avgRating}</div>
-          <div className="text-orange-500 text-2xl mb-2">
+        <div className="text-center mb-10 p-8 glass-card rounded-3xl hover-lift animate-scale-in">
+          <div className="text-6xl font-heading font-bold text-gradient mb-4">{avgRating}</div>
+          <div className="text-orange-400 text-3xl mb-4">
             {'★'.repeat(Math.round(Number(avgRating)))}
             {'☆'.repeat(5 - Math.round(Number(avgRating)))}
           </div>
-          <div className="text-blue-200 text-sm">
+          <div className="text-blue-100 text-lg font-medium">
             Based on {reviews.length} review{reviews.length !== 1 ? 's' : ''}
           </div>
         </div>
       )}
 
-      <div className="space-y-4 max-h-96 overflow-y-auto custom-scrollbar">
+      <div className="space-y-6 max-h-96 overflow-y-auto custom-scrollbar">
         {reviews.length === 0 ? (
-          <div className="text-center py-12">
-            <div className="text-6xl mb-4">💭</div>
-            <h4 className="text-xl font-semibold text-white mb-2">No reviews yet</h4>
-            <p className="text-blue-200">Be the first to share your experience!</p>
+          <div className="text-center py-16 glass-card rounded-3xl animate-fade-in-up">
+            <div className="text-8xl mb-6 animate-wave">💭</div>
+            <h4 className="text-2xl font-heading font-bold text-white mb-4">No reviews yet</h4>
+            <p className="text-blue-200 text-lg">Be the first to share your experience!</p>
           </div>
         ) : (
           reviews.map((review, index) => (
             <div 
               key={review.id} 
-              className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20 hover:bg-white/15 transition-all duration-300 group"
+              className="glass-card rounded-2xl p-6 hover-lift group animate-fade-in-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 gradient-accent rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
                     {review.name.charAt(0).toUpperCase()}
                   </div>
                   <div>
-                    <div className="font-semibold text-white">{review.name}</div>
-                    <div className="text-blue-200 text-sm">
+                    <div className="font-heading font-bold text-white text-lg">{review.name}</div>
+                    <div className="text-blue-200 text-base font-medium">
                       {new Date(review.created_at).toLocaleDateString('en-US', {
                         month: 'short',
                         day: 'numeric',
@@ -81,17 +81,17 @@ export default function ReviewsList() {
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-1">
-                  <div className="text-orange-400 text-lg">
+                <div className="flex items-center gap-2">
+                  <div className="text-orange-400 text-xl">
                     {'★'.repeat(review.rating)}
                   </div>
-                  <span className="text-orange-300 text-sm font-medium ml-1">
+                  <span className="text-orange-300 text-base font-bold ml-1">
                     {review.rating}/5
                   </span>
                 </div>
               </div>
-              <p className="text-blue-100 leading-relaxed group-hover:text-white transition-colors">
-                "{review.text}"
+              <p className="text-blue-100 leading-relaxed group-hover:text-white transition-colors text-lg">
+                &quot;{review.text}&quot;
               </p>
             </div>
           ))
