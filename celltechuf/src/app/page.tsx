@@ -18,16 +18,11 @@ export default function Home() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <div className="relative group">
-                {/* TODO: Replace with actual logo image */}
-                <div className="w-20 h-20 gradient-accent rounded-3xl flex items-center justify-center text-white font-bold text-3xl shadow-2xl transform rotate-2 hover-lift animate-pulse-glow glow-on-hover">
-                  CT
-                </div>
-                {/* Logo image structure - uncomment when you have the logo */}
-                {/* <img 
-                  src="/logo.png" 
+                <img 
+                  src="/ctlogo.png" 
                   alt="Cell Tech @ UF Logo" 
-                  className="w-20 h-20 rounded-3xl shadow-2xl transform rotate-2 hover-lift animate-pulse-glow glow-on-hover"
-                /> */}
+                  className="w-20 h-20 rounded-3xl shadow-2xl transform rotate-2 hover-lift animate-pulse-glow glow-on-hover object-cover"
+                />
               </div>
               <div className="animate-fade-in-up animate-delay-200">
                 <h1 className="text-3xl md:text-4xl font-heading font-bold text-white tracking-tight mb-2">Cell Tech @ UF</h1>
@@ -50,7 +45,7 @@ export default function Home() {
               </a>
               <a
                 href="sms:239-321-4052"
-                className="group gradient-primary glow-on-hover button-press text-white px-8 py-4 rounded-2xl font-semibold text-sm transition-all duration-300 shadow-2xl hover:shadow-xl transform hover:-translate-y-1 flex items-center gap-3 focus-ring"
+                className="group gradient-accent glow-on-hover button-press text-white px-8 py-4 rounded-2xl font-semibold text-sm transition-all duration-300 shadow-2xl hover:shadow-xl transform hover:-translate-y-1 flex items-center gap-3 focus-ring"
               >
                 <span className="text-xl">💬</span>
                 <span>Text Us</span>
@@ -131,10 +126,12 @@ export default function Home() {
             {/* Enhanced Profile */}
             <div className="text-center lg:text-left animate-slide-in-left">
               <div className="relative inline-block mb-8">
-                <div className="w-64 h-64 mx-auto lg:mx-0 gradient-accent rounded-full flex items-center justify-center text-white text-8xl font-bold shadow-2xl animate-pulse-glow hover-lift glow-on-hover">
-                  W
-                </div>
-                <div className="absolute -bottom-4 -right-4 w-20 h-20 gradient-primary rounded-full flex items-center justify-center animate-wave shadow-xl">
+                <img 
+                  src="/wasseem%202.png" 
+                  alt="Wasseem Barghouthi" 
+                  className="w-64 h-64 mx-auto lg:mx-0 rounded-full object-cover shadow-2xl animate-pulse-glow hover-lift glow-on-hover border-4 border-orange-400/20"
+                />
+                <div className="absolute -bottom-4 -right-4 w-20 h-20 gradient-accent rounded-full flex items-center justify-center animate-wave shadow-xl">
                   <span className="text-white text-3xl">🔧</span>
                 </div>
               </div>
@@ -256,16 +253,11 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-12 text-center md:text-left">
             <div className="animate-fade-in-up">
               <div className="flex items-center justify-center md:justify-start gap-4 mb-6">
-                {/* TODO: Replace with actual logo image */}
-                <div className="w-16 h-16 gradient-accent rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                  CT
-                </div>
-                {/* Logo image structure - uncomment when you have the logo */}
-                {/* <img 
-                  src="/logo.png" 
+                <img 
+                  src="/ctlogo.png" 
                   alt="Cell Tech @ UF Logo" 
-                  className="w-16 h-16 rounded-2xl shadow-lg"
-                /> */}
+                  className="w-16 h-16 rounded-2xl shadow-lg object-cover"
+                />
                 <div>
                   <h4 className="text-2xl font-heading font-bold text-white">Cell Tech @ UF</h4>
                   <p className="text-blue-200 text-lg">iPhone Repair Experts</p>
@@ -302,7 +294,7 @@ export default function Home() {
                 </a>
                 <a
                   href="sms:239-321-4052"
-                  className="gradient-primary glow-on-hover button-press text-white px-6 py-4 rounded-2xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block focus-ring"
+                  className="gradient-accent glow-on-hover button-press text-white px-6 py-4 rounded-2xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block focus-ring"
                 >
                   Text Us Now
                 </a>
