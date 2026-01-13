@@ -1,5 +1,6 @@
 [build]
   base = "celltechuf"
+  publish = "celltechuf/.next"
   command = "npm run build"
 
 [[plugins]]
