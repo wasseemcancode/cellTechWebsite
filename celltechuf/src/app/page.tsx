@@ -31,7 +31,7 @@ export default function Home() {
                   <div className="flex text-orange-400 text-lg">
                     {'★'.repeat(5)}
                   </div>
-                  <span className="text-sm text-blue-200 font-medium">Trusted by 500+ UF students</span>
+                  <span className="text-sm text-blue-200 font-medium">Trusted by 50+ satisfied UF students</span>
                 </div>
               </div>
             </div>
@@ -95,11 +95,11 @@ export default function Home() {
           {/* Enhanced Stats */}
           <div className="grid grid-cols-3 gap-12 max-w-4xl mx-auto mb-16">
             <div className="text-center glass-card rounded-2xl p-8 hover-lift animate-scale-in animate-delay-400">
-              <div className="text-5xl font-heading font-bold text-gradient mb-4">500+</div>
+              <div className="text-5xl font-heading font-bold text-gradient mb-4">200+</div>
               <div className="text-blue-100 text-lg font-medium">Repairs Completed</div>
             </div>
             <div className="text-center glass-card rounded-2xl p-8 hover-lift animate-scale-in animate-delay-500">
-              <div className="text-5xl font-heading font-bold text-gradient mb-4">24hr</div>
+              <div className="text-5xl font-heading font-bold text-gradient mb-4">3hr</div>
               <div className="text-blue-100 text-lg font-medium">Average Turnaround</div>
             </div>
             <div className="text-center glass-card rounded-2xl p-8 hover-lift animate-scale-in animate-delay-600">
@@ -141,7 +141,7 @@ export default function Home() {
                 <div className="flex text-orange-400 text-2xl">
                   {'★'.repeat(5)}
                 </div>
-                <span className="text-blue-100 text-lg font-body font-medium">500+ Successful Repairs</span>
+                <span className="text-blue-100 text-lg font-body font-medium">200+ Successful Repairs</span>
               </div>
             </div>
 
@@ -153,7 +153,7 @@ export default function Home() {
                   Experience & Education
                 </h5>
                 <p className="text-blue-100 font-body leading-relaxed text-lg">
-                  As a University of Florida student studying Computer Engineering, I understand the importance of having a working phone on campus. With over 2 years of experience in mobile device repair and 500+ successful repairs, I&apos;ve built a reputation for quality work and honest pricing.
+                  As a University of Florida student studying Electrical Engineering, I understand the importance of having a working phone on campus. With over 2 years of experience in mobile device repair and 200+ successful repairs, I&apos;ve built a reputation for quality work and honest pricing.
                 </p>
               </div>
 
@@ -167,7 +167,7 @@ export default function Home() {
                     'Certified in iPhone repair techniques',
                     'Use only high-quality replacement parts',
                     'Transparent pricing with no hidden fees',
-                    'Quick turnaround - most repairs in 24 hours',
+                    'Quick turnaround - most repairs in 3 hours',
                     'Fellow UF student who understands your needs'
                   ].map((point, i) => (
                     <div key={i} className="flex items-start gap-4 text-blue-100 font-body text-lg">
