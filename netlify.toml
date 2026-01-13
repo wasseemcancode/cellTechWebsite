@@ -1,10 +1,12 @@
 [build]
   base = "celltechuf"
-  publish = "celltechuf/.next"
   command = "npm run build"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+  
+[plugins.inputs]
+  publish = ".next"
 
 [build.environment]
   NEXT_TELEMETRY_DISABLED = "1"
