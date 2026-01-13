@@ -9,6 +9,10 @@ const ReviewSchema = z.object({
 })
 
 export async function GET() {
+  if (!supabase) {
+    return NextResponse.json({ reviews: [] })
+  }
+
   const { data, error } = await supabase
     .from('reviews')
     .select('*')
@@ -24,6 +28,10 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
+  if (!supabase) {
+    return NextResponse.json({ error: 'Database not configured' }, { status: 503 })
+  }
+
   const json = await req.json().catch(() => null)
   const parsed = ReviewSchema.safeParse(json)
   if (!parsed.success) {
