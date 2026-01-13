@@ -1,6 +1,6 @@
 [build]
   base = "celltechuf"
-  command = "cd celltechuf && npm run build"
+  command = "npm run build"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
