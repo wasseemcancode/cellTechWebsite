@@ -1,17 +1,36 @@
 "use client"
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import { Review } from '@/types/review'
+import { manualReviews } from '@/data/manualReviews'
+
+const DEFAULT_MANUAL_DATE = '2024-12-01' // used when no date set, so manual reviews appear in the list
+
+function toReview(entry: { name: string; text: string; date?: string }, index: number): Review {
+  return {
+    id: `manual-${index}`,
+    name: entry.name,
+    rating: 5,
+    text: entry.text,
+    created_at: entry.date ? `${entry.date}T12:00:00Z` : `${DEFAULT_MANUAL_DATE}T12:00:00Z`,
+    approved: true,
+  }
+}
 
 export default function ReviewsList() {
-  const [reviews, setReviews] = useState<Review[]>([])
+  const [dbReviews, setDbReviews] = useState<Review[]>([])
   const [loading, setLoading] = useState(true)
+
+  const manualAsReviews = useMemo(
+    () => manualReviews.map((entry, i) => toReview(entry, i)),
+    []
+  )
 
   useEffect(() => {
     async function fetchReviews() {
       try {
         const res = await fetch('/api/reviews')
         const data = await res.json()
-        setReviews(data.reviews || [])
+        setDbReviews(data.reviews || [])
       } catch (err) {
         console.error('Failed to fetch reviews:', err)
       } finally {
@@ -21,7 +40,14 @@ export default function ReviewsList() {
     fetchReviews()
   }, [])
 
-  const avgRating = reviews.length > 0 
+  const reviews = useMemo(() => {
+    const combined = [...dbReviews, ...manualAsReviews]
+    return combined.sort(
+      (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+    )
+  }, [dbReviews, manualAsReviews])
+
+  const avgRating = reviews.length > 0
     ? (reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length).toFixed(1)
     : '0.0'
 
@@ -60,8 +86,8 @@ export default function ReviewsList() {
           </div>
         ) : (
           reviews.map((review, index) => (
-            <div 
-              key={review.id} 
+            <div
+              key={review.id}
               className="glass-card rounded-2xl p-6 hover-lift group animate-fade-in-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
