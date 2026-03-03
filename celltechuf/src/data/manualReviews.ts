@@ -20,5 +20,6 @@ export const manualReviews: ManualReviewEntry[] = [
   // { name: 'Sarah M.', text: 'Super fast screen repair!', date: '2024-11-15' },
   // { name: 'Jake K.', text: 'Fixed my charging port same day.', date: '2024-10-03' },
   {name: 'Naser Oqab', text: 'Wasseem is amazing! Super professional, fast, and knows exactly what he’s doing. He got the job done quickly and made the whole process smooth and easy. Highly reccomend to any college student looking for reliability and speed.', date: '2026-02-25'},
-  {name: 'John Cardoza', text: 'Needed to get my PS5 fixed and Wasseem fixed it quick, I got it back the same day and he was super nice. Will surely be going there when I need anything fixed. Thanks Wasseem 👍', date: '2026-02-19'}
+  {name: 'John Cardoza', text: 'Needed to get my PS5 fixed and Wasseem fixed it quick, I got it back the same day and he was super nice. Will surely be going there when I need anything fixed. Thanks Wasseem 👍', date: '2026-02-19'},
+  {name: 'UF Student', text: 'Wasseem took awesome care of my iPhone battery, kept his word on the amazing price as well. Was very friendly and responsive. I was recommended by a friend and I would definitely recommend Wasseem to others looking for a good deal.', date: '2026-02-15'}
 ]
