@@ -1,108 +1,108 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
+/*
+  Design tokens
+  A warm, restrained palette (paper + ink + two UF-adjacent accents) — a muted
+  slate blue as the primary/structural color and a burnt orange as the warm
+  highlight, both deliberately offset from the saturated official Gator blue
+  (#0021A5) and orange (#FA4616) so they stay calm and legible as body-scale
+  color rather than team-branding color. Everything below is referenced either
+  as a plain CSS variable or, via the @theme block, as a generated Tailwind
+  utility (e.g. --color-blue produces bg-blue / text-blue / border-blue).
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  
-  /* Enhanced Color System */
-  --primary-blue: #1e40af;
-  --primary-blue-light: #3b82f6;
-  --primary-blue-dark: #1e3a8a;
-  --accent-orange: #f97316;
-  --accent-orange-light: #fb923c;
-  --accent-orange-dark: #ea580c;
-  
-  /* Neutral Grays */
-  --gray-50: #f8fafc;
-  --gray-100: #f1f5f9;
-  --gray-200: #e2e8f0;
-  --gray-300: #cbd5e1;
-  --gray-400: #94a3b8;
-  --gray-500: #64748b;
-  --gray-600: #475569;
-  --gray-700: #334155;
-  --gray-800: #1e293b;
-  --gray-900: #0f172a;
-  
-  /* Glass Effects */
-  --glass-bg: rgba(255, 255, 255, 0.08);
-  --glass-border: rgba(255, 255, 255, 0.12);
-  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --color-paper: #f8f6f1;        /* page background — warm, not stark white */
+  --color-paper-soft: #f1ede4;   /* secondary section tint */
+  --color-surface: #ffffff;      /* card / input surface */
+  --color-ink: #23211d;          /* primary text — warm near-black */
+  --color-ink-soft: #55503f;     /* secondary text */
+  --color-ink-muted: #8a8471;    /* tertiary / caption text */
+  --color-line: #e6e0d1;         /* hairline borders */
+  --color-line-strong: #d6cdb6;  /* slightly stronger borders / dividers */
+  --color-blue: #3d6a8c;         /* primary accent — muted slate blue */
+  --color-blue-dark: #2c4f68;    /* accent hover/active */
+  --color-blue-soft: #e3ebf0;    /* accent tint for badges/backgrounds */
+  --color-orange: #c1652e;       /* secondary accent — burnt orange highlight */
+  --color-orange-dark: #a1521f;  /* accent hover/active */
+  --color-orange-soft: #f3e3d5;  /* accent tint for badges/backgrounds */
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--color-paper);
+  --color-foreground: var(--color-ink);
+  --color-paper: var(--color-paper);
+  --color-paper-soft: var(--color-paper-soft);
+  --color-surface: var(--color-surface);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-ink-muted: var(--color-ink-muted);
+  --color-line: var(--color-line);
+  --color-line-strong: var(--color-line-strong);
+  --color-blue: var(--color-blue);
+  --color-blue-dark: var(--color-blue-dark);
+  --color-blue-soft: var(--color-blue-soft);
+  --color-orange: var(--color-orange);
+  --color-orange-dark: var(--color-orange-dark);
+  --color-orange-soft: var(--color-orange-soft);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-source-serif);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-/* Modern typography classes */
+/* Typography — serif for display headings, sans for everything else */
 .font-heading {
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-weight: 700;
+  font-family: var(--font-source-serif), Georgia, 'Times New Roman', serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .font-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-/* Enhanced Custom Scrollbar */
+/* Scrollbar — quiet, neutral */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  margin: 4px;
+  background: transparent;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, var(--accent-orange), var(--accent-orange-light));
-  border-radius: 8px;
-  border: 2px solid transparent;
-  background-clip: content-box;
-  transition: all 0.3s ease;
+  background: var(--color-line-strong);
+  border-radius: 6px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, var(--accent-orange-dark), var(--accent-orange));
-  transform: scale(1.1);
+  background: var(--color-ink-muted);
 }
 
-/* Enhanced Animations */
+/* Entrance animations — short, subtle, no blur/scale theatrics */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
-    filter: blur(4px);
+    transform: translateY(14px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
-    filter: blur(0);
   }
 }
 
 @keyframes slideInLeft {
   from {
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translateX(-16px);
   }
   to {
     opacity: 1;
@@ -113,7 +113,7 @@ body {
 @keyframes slideInRight {
   from {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translateX(16px);
   }
   to {
     opacity: 1;
@@ -124,7 +124,7 @@ body {
 @keyframes scaleIn {
   from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.97);
   }
   to {
     opacity: 1;
@@ -133,267 +133,143 @@ body {
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .animate-slide-in-left {
-  animation: slideInLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: slideInLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .animate-slide-in-right {
-  animation: slideInRight 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: slideInRight 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .animate-scale-in {
-  animation: scaleIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: scaleIn 0.45s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-/* Enhanced Button Effects */
-.glow-on-hover {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+.animate-delay-400 { animation-delay: 0.4s; }
+.animate-delay-500 { animation-delay: 0.5s; }
+.animate-delay-600 { animation-delay: 0.6s; }
+
+/* Card surface — flat, hairline border, no blur */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  box-shadow: 0 1px 2px rgba(35, 33, 29, 0.04);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
-.glow-on-hover::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
+/* Kept as an alias so existing markup keeps working; same flat treatment as .card */
+.glass-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  box-shadow: 0 1px 2px rgba(35, 33, 29, 0.04);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
-.glow-on-hover:hover::before {
-  left: 100%;
-}
-
-.glow-on-hover:hover {
-  box-shadow: 
-    0 0 30px rgba(251, 146, 60, 0.4),
-    0 10px 40px rgba(0, 0, 0, 0.1);
+/* Gentle lift for genuinely interactive cards — no scale, no glow */
+.hover-lift:hover {
+  border-color: var(--color-line-strong);
+  box-shadow: 0 8px 24px rgba(35, 33, 29, 0.07);
   transform: translateY(-2px);
 }
 
-/* Glass Card Effect */
-.glass-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
-.glass-card:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.18);
-  box-shadow: 
-    0 12px 40px rgba(0, 0, 0, 0.15),
-    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
-  transform: translateY(-4px) scale(1.02);
+.btn:active {
+  transform: scale(0.98);
 }
 
-/* Premium Gradient Backgrounds */
-.gradient-primary {
-  background: linear-gradient(to bottom, var(--primary-blue-dark) 0%, var(--primary-blue) 20%, var(--primary-blue-light) 40%, var(--accent-orange) 80%, var(--accent-orange-light) 100%);
+.btn-primary {
+  background: var(--color-blue);
+  color: #fff;
 }
 
-.gradient-accent {
-  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-orange-light) 50%, #fbbf24 100%);
+.btn-primary:hover {
+  background: var(--color-blue-dark);
 }
 
-.gradient-mesh {
-  background: 
-    radial-gradient(circle at 20% 20%, rgba(30, 64, 175, 0.4) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(249, 115, 22, 0.4) 0%, transparent 50%),
-    radial-gradient(circle at 60% 60%, rgba(99, 102, 241, 0.3) 0%, transparent 50%),
-    linear-gradient(to bottom, rgba(30, 64, 175, 0.1) 0%, rgba(249, 115, 22, 0.1) 100%);
+.btn-outline {
+  background: transparent;
+  color: var(--color-ink);
+  border: 1px solid var(--color-line-strong);
 }
 
-/* Dynamic wavy animations */
-/* Enhanced Keyframe Animations */
-@keyframes wave {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-12px) rotate(2deg);
-  }
-  50% {
-    transform: translateY(-8px) rotate(0deg);
-  }
-  75% {
-    transform: translateY(-18px) rotate(-2deg);
-  }
+.btn-outline:hover {
+  border-color: var(--color-ink-muted);
+  background: var(--color-paper-soft);
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px) scale(1);
-  }
-  50% {
-    transform: translateY(-25px) scale(1.02);
-  }
+/* On dark/navy surfaces (e.g. footer quick actions on paper-soft still reads fine,
+   but this variant exists for any element sitting on a solid accent fill) */
+.btn-outline-inverse {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 
-      0 0 25px rgba(251, 146, 60, 0.4),
-      0 0 50px rgba(251, 146, 60, 0.1);
-  }
-  50% {
-    box-shadow: 
-      0 0 35px rgba(251, 146, 60, 0.6),
-      0 0 70px rgba(251, 146, 60, 0.2);
-  }
+.btn-outline-inverse:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.08);
 }
 
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-@keyframes bounce-subtle {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-@keyframes gradient-shift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-/* Animation classes */
-.animate-wave {
-  animation: wave 6s ease-in-out infinite;
-}
-
-.animate-float {
-  animation: float 4s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 3s ease-in-out infinite;
-}
-
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient-shift 8s ease infinite;
-}
-
-/* Staggered animations for service cards */
-.animate-delay-100 {
-  animation-delay: 0.1s;
-}
-
-.animate-delay-200 {
-  animation-delay: 0.2s;
-}
-
-.animate-delay-300 {
-  animation-delay: 0.3s;
-}
-
-.animate-delay-400 {
-  animation-delay: 0.4s;
-}
-
-/* Enhanced Hover Effects */
-.hover-lift {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-}
-
-.hover-lift:hover {
-  transform: translateY(-12px) scale(1.03);
-  box-shadow: 
-    0 25px 50px rgba(0, 0, 0, 0.15),
-    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
-}
-
-.hover-lift::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: inherit;
-  pointer-events: none;
-}
-
-.hover-lift:hover::after {
-  opacity: 1;
-}
-
-/* Micro-interactions */
 .button-press {
-  transition: all 0.1s ease;
+  transition: transform 0.1s ease;
 }
 
 .button-press:active {
   transform: scale(0.98);
 }
 
-/* Shimmer Effect */
-.shimmer {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite;
-}
-
-/* Smooth Focus States */
+/* Focus ring — crisp, accessible, single ring */
 .focus-ring {
-  transition: all 0.2s ease;
+  transition: box-shadow 0.15s ease;
 }
 
-.focus-ring:focus {
+.focus-ring:focus-visible {
   outline: none;
-  box-shadow: 
-    0 0 0 3px rgba(249, 115, 22, 0.3),
-    0 0 0 1px rgba(249, 115, 22, 0.5);
+  box-shadow: 0 0 0 2px var(--color-paper), 0 0 0 4px var(--color-blue);
 }
 
-/* Typography Enhancements */
-.text-gradient {
-  background: linear-gradient(135deg, var(--accent-orange), var(--accent-orange-light), #fbbf24);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Small uppercase label / eyebrow style used for meta text */
+.label-caption {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
 }
 
-/* Mobile Optimizations */
 @media (max-width: 768px) {
   .hover-lift:hover {
     transform: none;
-    box-shadow: none;
   }
-  
-  .glass-card:hover {
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up,
+  .animate-slide-in-left,
+  .animate-slide-in-right,
+  .animate-scale-in {
+    animation: none;
+    opacity: 1;
     transform: none;
+  }
+
+  * {
+    scroll-behavior: auto !important;
   }
 }

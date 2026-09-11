@@ -17,12 +17,12 @@ export function Stars({ value = 0, onChange }: { value?: number; onChange?: (v: 
           onClick={() => onChange?.(s)}
           aria-label={`${s} star${s > 1 ? 's' : ''}`}
           className={`
-            text-4xl transition-all duration-300 transform hover:scale-125 active:scale-110 focus-ring rounded-lg p-1
-            ${active >= s 
-              ? 'text-orange-400 drop-shadow-2xl animate-pulse-glow' 
-              : 'text-white/40 hover:text-orange-300'
+            text-2xl transition-transform duration-150 hover:scale-110 active:scale-95 focus-ring rounded-md p-0.5
+            ${active >= s
+              ? 'text-orange'
+              : 'text-line-strong hover:text-orange/60'
             }
-            ${onChange ? 'cursor-pointer hover-lift' : 'cursor-default'}
+            ${onChange ? 'cursor-pointer' : 'cursor-default'}
           `}
           disabled={!onChange}
         >
